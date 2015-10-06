@@ -1,1 +1,0 @@
-cmd_androtrace/built-in.o :=  /home/ryoung/src/Nexus5/__basic/arm-eabi-4.6-master/bin/arm-eabi-ld -EL    -r -o androtrace/built-in.o androtrace/common.o androtrace/androtrace_module.o androtrace/androtrace.o 
