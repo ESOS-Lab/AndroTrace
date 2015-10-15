@@ -1,0 +1,140 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+
+        <TextView
+            android:layout_marginLeft = "10dip"
+            android:layout_marginTop = "10dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total transfer amount(KB)"
+            ></TextView>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft = "10dip"
+                android:layout_marginTop = "10dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="● IO : "
+                ></TextView>
+            <TextView android:id="@+id/io_txt"
+                android:layout_marginTop = "10dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                ></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft = "10dip"
+                android:layout_marginTop = "10dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="● FILE : "
+                ></TextView>
+            <TextView android:id="@+id/filels_txt"
+                android:layout_marginTop = "10dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                ></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft = "10dip"
+                android:layout_marginTop = "10dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="● MEM : "
+                ></TextView>
+            <TextView android:id="@+id/mem_txt"
+                android:layout_marginTop = "10dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                ></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft = "10dip"
+                android:layout_marginTop = "10dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="● MEM(Detail) : "
+                ></TextView>
+            <TextView android:id="@+id/minfo_txt"
+                android:layout_marginTop = "10dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                ></TextView>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:background="#A9A9A9"
+            android:layout_marginTop="20dp"
+            android:textSize="2dp"
+            ></TextView>
+        <TextView android:id="@+id/b_txt"
+            android:layout_marginTop = "10dip"
+            android:layout_marginLeft = "10dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current transfer amount. "
+            ></TextView>
+        <Button android:id="@+id/refresh_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Refresh"
+            android:layout_gravity="right"
+            ></Button>
+        <RelativeLayout
+            android:id="@+id/InnerRelativeLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="true" >
+
+            <TextView android:id="@+id/tmp1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+
+                android:text="- ver.1.2 -"
+                android:layout_marginBottom="10dip">
+
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tmp1"
+                android:layout_centerHorizontal="true"
+                android:text="2015/6/11 "
+                ></TextView>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>
