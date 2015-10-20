@@ -405,6 +405,8 @@ bool androtrace_add_filels(struct inode *inode)
 #endif
 	memset(pname,0, PNAME_MAX);
 
+	return false;
+
 	if (IS_ERR_OR_NULL(fls_buf_hand))
         	return false;
 
@@ -541,6 +543,8 @@ bool androtrace_add_suspend(unsigned char type)
 
 	if (IS_ERR_OR_NULL(io_buf_hand))
         	return false;
+
+printk("%s", __func__);
 
 	__fill_header(TRACE_SUSPEND, &header);
 

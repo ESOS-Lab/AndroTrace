@@ -126,7 +126,8 @@ int main (int argc, char **argv)
 		return 0;
 	}
 	io_fd = log_file_creat(IO_LOG);
-	fls_fd = log_file_creat(FILELS_LOG);
+	/* -151020 ryoung no need to collect file lifespane information */
+	/* fls_fd = log_file_creat(FILELS_LOG);*/
 	while (1) {
 		retval = poll((struct pollfd *)&events, 1, 1000);
 		if (retval < 0)
@@ -135,18 +136,20 @@ int main (int argc, char **argv)
 			printf("[androtrace] %s() no event\n", __func__);
 		else {
 
-			if (ALL_LOG & events[0].revents) {
+			/*if (ALL_LOG & events[0].revents) {
 				io_file_write();
-				fls_file_write();
-			} else if (IO_LOG & events[0].revents) {
+				// fls_file_write();
+			} else */
+			if (IO_LOG & events[0].revents) {
 				io_file_write();
-			} else if (FILELS_LOG & events[0].revents) {
-				fls_file_write();
 			}
+			/* } else if (FILELS_LOG & events[0].revents) {
+				fls_file_write();
+			} */
 		}
 	}
 	close(io_fd);
-	close(fls_fd);
+	/* close(fls_fd); */
 	close(dev_fd);
 	return 0;
 }

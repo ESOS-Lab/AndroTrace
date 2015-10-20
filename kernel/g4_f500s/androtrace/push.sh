@@ -1,7 +1,7 @@
 ./daemon.sh
-adb push androtrace_daemon /sdcard/
+adb push androtrace_daemon /data/androtrace/
 cd module
 make 
 cd ../
-adb push androtrace_module.ko /sdcard/
-adb push script.sh /sdcard/androtrace.sh
+adb push androtrace_module.ko /data/androtrace/
+adb push script.sh /data/androtrace/androtrace.bk

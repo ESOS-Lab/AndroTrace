@@ -53,7 +53,7 @@ unsigned int at_fs_id;
 static int androtrace_open(struct inode *inode, struct file *filp)
 {
 	unsigned long io_buf_addr[IO_BUF_COUNT];
-	unsigned long filels_buf_addr[FILELS_BUF_COUNT];
+	/* unsigned long filels_buf_addr[FILELS_BUF_COUNT]; */
 	struct cbuf *buf = NULL;
 	int i = 0;
 
@@ -89,6 +89,8 @@ static int androtrace_open(struct inode *inode, struct file *filp)
 	filp->private_data = io_buf_head;
 
  	/* -- file life-span -- */
+	/* -151020 ryoung file lifespan */
+	/*
 	memset(filels_buf_addr, 0, FILELS_BUF_COUNT * sizeof(unsigned long));
 	for (i = 0; i < FILELS_BUF_COUNT; ++i)
 		filels_buf_addr[i] = (unsigned long)kzalloc(sizeof(struct cbuf), GFP_KERNEL);
@@ -102,13 +104,15 @@ static int androtrace_open(struct inode *inode, struct file *filp)
 		else
 			memset(buf->data, 0, FILELS_BUF_SIZE);
 		buf->offset = 0; 
-		if (i == FILELS_BUF_COUNT-1) /*check it is final entry or not*/
+		if (i == FILELS_BUF_COUNT-1) //check it is final entry or not
 			buf->next  = (struct cbuf*)filels_buf_addr[0];		
 		else
 			buf->next = (struct cbuf*)filels_buf_addr[i+1]; 		
 	}
 	fls_buf_head = (struct cbuf*)filels_buf_addr[0];
 	fls_buf_hand = (struct cbuf*)filels_buf_addr[0];
+	*/
+
 	/* init wati_queue */
 	init_waitqueue_head(&wait_queue);
 
@@ -161,26 +165,35 @@ unsigned int androtrace_poll(struct file *file, poll_table *wait)
 		return 0;
 	}
 
+	/* -151020 ryoung no collect file ls */ 
+	if (io_buf_head->full)
+		return IO_LOG;
 	/* check io/file life-span head buffer is full or not */
+	/* 
 	if (io_buf_head->full && fls_buf_head->full)
 		return ALL_LOG;
 	else if (io_buf_head->full)
 		return IO_LOG;
 	else if (fls_buf_head->full)
 		return FILELS_LOG;
+	*/
 	
 	/*io/file life-span head buffer, both are not full
 	  then it waits on wait_queue */
-	if (wait_event_interruptible(wait_queue, io_buf_head->full || fls_buf_head->full))
+	if (wait_event_interruptible(wait_queue, io_buf_head->full /*|| fls_buf_head->full*/ ))
 		return -ERESTARTSYS;
+	
+	if (io_buf_head->full)
+		return IO_LOG;
 	/*check which head buffer became full*/
+	/*
 	if (io_buf_head->full && fls_buf_head->full)
 		return ALL_LOG;
 	else if (io_buf_head->full)
 		return IO_LOG;
 	else if (fls_buf_head->full)
 		return FILELS_LOG;
-		
+	*/	
 	return 	POLLERR;
 }
 
@@ -210,6 +223,7 @@ static int androtrace_release(struct inode *inode, struct file *file)
 	raw_spin_unlock_irq(&io_buf_lock);
 	
 	/* release file life-span buffer*/
+	/*
 	raw_spin_lock_irq(&fls_buf_lock);
 	buf = fls_buf_head; 
 	buf_next = buf->next;
@@ -222,6 +236,8 @@ static int androtrace_release(struct inode *inode, struct file *file)
 	fls_buf_head = NULL;
 	fls_buf_hand = NULL;
 	raw_spin_unlock_irq(&fls_buf_lock);
+	*/
+
 	file->private_data = NULL;
 	return 0;
 }
