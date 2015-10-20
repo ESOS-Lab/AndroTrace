@@ -63,12 +63,12 @@ Setup
     4. Build Kernel (configuration setting)
     	# nexus5 use arm and g4 use arm64, check Makefile and README.txt for each device model)
         # nexus5
-          # export ARCH = arm hammmerhead_defconfig
+          # make ARCH = arm hammmerhead_defconfig
           # make menuconfig (check all Enable loadable module support)
-          # make ARCH=arm CROSS_COMPILE=[toolchain path]
+          # make ARCH = arm CROSS_COMPILE=[toolchain path]
         # g4
-          # make ARCH=arm64 p1_skt_kr-perf_defconfig
-          # make ARCH=arm64 CROSS_COMPILE=/opt/toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-android- 
+          # make ARCH = arm64 p1_skt_kr-perf_defconfig
+          # make ARCH = arm64 CROSS_COMPILE=/opt/toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-android- 
     5. Flash Custom boot img (custrom ramdisk, custom kernel) (refer to ./custom_img/porting.sh)
     6. Build androtrace kernel module & user daemon (refer to ./androtrace/push.sh) and push them to target device.
     7. Reboot device
