@@ -57,30 +57,24 @@ Setup
         # LG G4
           # download from http://opensource.lge.com/osSch/list?types=ALL&search=F500S
     2. Patch kernel
-        # patch -p1 < androtrace_nexus5.patch or androtrace_g4.patch
-	# or 
-        # patch source code what AnaroTrace modified (find CONFIG_ANDROTRACE in  .c file)
+        # patch source code what AnaroTrace modified (search CONFIG_ANDROTRACE) 
     3. Set folder where traces files will be saved (refer to androtrace\androtrace_daemon.c)
-	# find #define ANDROTRACE_IO_DIR, UDROID_FILELS_DIR
-        # set path of each directory 
+	# search #define ANDROTRACE_IO_DIR
     4. Build Kernel (configuration setting)
     	# nexus5 use arm and g4 use arm64, check Makefile and README.txt for each device model)
         # nexus5
-          # export ARCH = arm
-          # export CROSS_COMPILE = [toolchain path]
-          # make ARCH = arm hammerhead_defconfig
-          # make menuconfig(check all Enable loadable module support)
-          # make
+          # export ARCH = arm hammmerhead_defconfig
+          # make menuconfig (check all Enable loadable module support)
+          # make ARCH=arm CROSS_COMPILE=[toolchain path]
         # g4
           # make ARCH=arm64 p1_skt_kr-perf_defconfig
-          # makeARCH=arm64 CROSS_COMPILE=/opt/toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-android- 
-    5. Kernel porting to your working devices
-    6. Build kernel module & user daemon and then, flush to device
-       # check toolchain path.
-       # ./push.sh
-    7. insmod kernel module & execute user daemon after booting (refer to androtrace\script.sh)
-    8. Kernel collects IO traces and file life-span automatically
-    9. Convert binary file to txt by androtrace/parser/trace_parser.c, incase you want to check trace data.
+          # make ARCH=arm64 CROSS_COMPILE=/opt/toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-android- 
+    5. Flash Custom boot img (custrom ramdisk, custom kernel) (refer to ./custom_img/porting.sh)
+    6. Build androtrace kernel module & user daemon (refer to ./androtrace/push.sh) and push them to target device.
+    7. Reboot device
+    8. insmod kernel module & execute user daemon automatically
+    8. androtrace start collects IO traces
+    9. [Appendix] Convert IO trace files to .txt (./kernel/model soruce/androtrace/parser/pull.sh, parse.sh, incase you want to check trace data.
 
 
 
