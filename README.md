@@ -1,6 +1,6 @@
 AndroTrace 
 =======================
-* Maintainer: Eunryoung Lim (erlim@hanyang.ac.kr)
+* Maintainer: Eunryoung Lim (eunryoung.lim@gmail.com)
 * Reference: Eunryoung Lim, Seongjin Lee, Youjip Won, ¡°Androtrace: Framework for Tracing and Analyzing IOs on Android¡±,  In Proceedings of 3rd workshop on Interactions of NVM/Flash with Operating-Systems and Workloads (INFLOW 2015), California, USA, Oct. 4-7, 2015
 * http://www.esos.hanyang.ac.kr/files/publication/conferences/international/androtrace.pdf
 
@@ -78,5 +78,5 @@ Setup
 
 
 
-2014-10-14, Eunryoung Lim <erlim@hanyang.ac.kr>
+2014-10-14, Eunryoung Lim <eunryoung.lim@gmail.com>
 
