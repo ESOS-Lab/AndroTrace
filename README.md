@@ -69,7 +69,7 @@ Setup
         # g4
           # make ARCH = arm64 p1_skt_kr-perf_defconfig
           # make ARCH = arm64 CROSS_COMPILE=/opt/toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-android- 
-    5. Flash Custom boot img (custrom ramdisk, custom kernel) (refer to ./custom_img/porting.sh)
+    5. Flash Custom boot img (custrom ramdisk, custom kernel) 
     6. Build androtrace kernel module & user daemon (refer to ./androtrace/push.sh) and push them to target device.
     7. Reboot device
     8. insmod kernel module & execute user daemon automatically
