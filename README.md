@@ -2,7 +2,7 @@ AndroTrace
 =======================
 * Maintainer: Eunryoung Lim (eunryoung.lim@gmail.com)
 * Reference: Eunryoung Lim, Seongjin Lee, Youjip Won, ¡°Androtrace: Framework for Tracing and Analyzing IOs on Android¡±,  In Proceedings of 3rd workshop on Interactions of NVM/Flash with Operating-Systems and Workloads (INFLOW 2015), California, USA, Oct. 4-7, 2015
-* http://www.esos.hanyang.ac.kr/files/publication/conferences/international/androtrace.pdf
+* [Publication](https://oslab.kaist.ac.kr/wp-content/uploads/esos_files/publication/conferences/international/androtrace.pdf)
 
 ------------
 AndroTrace is a framework to collect ***'REAL'*** IO traces and file life-span from Android platform devices. There is no limitation of partition and period in collecting traces. 
@@ -24,7 +24,7 @@ All information what we collects are as following:
 
 Behavior
 ----------------
-![Image of AndroTrace]( http://dmclab.hanyang.ac.kr/wikidata/img/androtrace_behavior.jpg)
+![image](https://user-images.githubusercontent.com/6268889/143931639-de3e457b-55ac-4059-861e-181bb66b8338.png)
 
 Kernel Modification
 ----------------
